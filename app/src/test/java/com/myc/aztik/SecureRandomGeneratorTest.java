@@ -13,9 +13,25 @@ public class SecureRandomGeneratorTest {
 	public void randomNumberTest() {
 		SecureRandomGenerator random = new SecureRandomGenerator();
 		
-		SecureRandom sec = random.buildDrbg();
+		SecureRandom sec = random.ex1BuildDrbg();
 		
 		System.out.println(sec.nextLong());
 		
 	}
+	
+	@Test
+	public void strongRandomNumberTest() {
+		SecureRandomGenerator random = new SecureRandomGenerator();
+		
+		SecureRandom sec = random.ex2BuildDrbgForKeys();
+		
+		System.out.println(sec.nextLong());
+		
+	}
+	
+	@Test
+	public void defaultSecureRandomTest() {
+		
+	}
+	
 }
