@@ -6,7 +6,7 @@ import org.bouncycastle.crypto.EntropySourceProvider;
 import org.bouncycastle.crypto.fips.FipsDRBG;
 import org.bouncycastle.crypto.util.BasicEntropySourceProvider;
 
-import com.myc.aztik.common.ExValues;
+import com.myc.aztik.common.Utils;
 
 public class SecureRandomGenerator {
 
@@ -30,7 +30,7 @@ public class SecureRandomGenerator {
 		// In the case of keys or components of keys, a higher standard
 		// is needed. It is achieved by setting to be “prediction resistance”
 		// to true.
-		return drgbBldr.build(ExValues.Nonce, false);
+		return drgbBldr.build(Utils.Nonce, false);
 	}
 
 	public SecureRandom ex2BuildDrbgForKeys() {
@@ -40,7 +40,7 @@ public class SecureRandomGenerator {
 		EntropySourceProvider entSource = new BasicEntropySourceProvider(new SecureRandom(), true);
 
 		FipsDRBG.Builder drgbBldr = FipsDRBG.SHA512_HMAC.fromEntropySource(entSource).setSecurityStrength(256)
-				.setEntropyBitsRequired(256).setPersonalizationString(ExValues.PersonalizationString);
+				.setEntropyBitsRequired(256).setPersonalizationString(Utils.PersonalizationString);
 
 		// 1. The returned SecureRandom is not created via the Java provider.
 		// It returns FipsSecureRandom which extends SecureRandom.
@@ -53,7 +53,7 @@ public class SecureRandomGenerator {
 		// In the case of keys or components of keys, a higher standard
 		// is needed. It is achieved by setting to be “prediction resistance”
 		// to true.
-		return drgbBldr.build(ExValues.Nonce, true);
+		return drgbBldr.build(Utils.Nonce, true);
 	}
 
 	public SecureRandom ex3DefaultSecureRandom() {
@@ -77,7 +77,7 @@ public class SecureRandomGenerator {
 		// In the case of keys or components of keys, a higher standard
 		// is needed. It is achieved by setting to be “prediction resistance”
 		// to true.
-		return drgbBldr.build(ExValues.Nonce, true);
+		return drgbBldr.build(Utils.Nonce, true);
 	}
 
 }

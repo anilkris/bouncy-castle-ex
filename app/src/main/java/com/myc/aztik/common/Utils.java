@@ -6,7 +6,7 @@ import org.bouncycastle.util.Strings;
 import org.bouncycastle.util.encoders.Hex;
 
 @SuppressWarnings({"squid:S1118"})
-public class ExValues {
+public class Utils {
     public static final long THIRTY_DAYS = 1000L * 60 * 60 * 24 * 30;
     public static final SecretKey SampleAesKey =
             new SecretKeySpec(Hex.decode("000102030405060708090a0b0c0d0e0f"),
@@ -32,4 +32,12 @@ public class ExValues {
     public static final byte[] Recipient = Strings.toByteArray("Recipient");
     public static final byte[] UKM =
             Strings.toByteArray("User keying material");
+    
+    public static String bytesToHex(byte[] bytes) {
+        StringBuilder sb = new StringBuilder();
+        for (byte b : bytes) {
+            sb.append(String.format("%02X ", b));
+        }
+        return sb.toString();
+    }
 }

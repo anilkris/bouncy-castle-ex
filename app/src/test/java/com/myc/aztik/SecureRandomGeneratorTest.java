@@ -4,7 +4,7 @@ import java.security.SecureRandom;
 
 import org.junit.jupiter.api.Test;
 import org.bouncycastle.crypto.fips.FipsDRBG;
-import com.myc.aztik.common.ExValues;
+import com.myc.aztik.common.Utils;
 
 public class SecureRandomGeneratorTest {
 
